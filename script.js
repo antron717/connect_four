@@ -1,22 +1,25 @@
 const squares = document.querySelectorAll('td')
 
 function checkEmpty(pos) {
-    for (let i = (pos % 7) + 35; i => pos; i -= 7) {
-        if (!squares[i].classList.contains('full')) {
-            return i
+    let n = (pos % 7) + 35
+    while (n >= pos % 7) {
+        if (!squares[n].classList.contains('full')) {
+            document.querySelector('h1').innerHTML = n
+            return n
         } else {
+            n -= 7
             continue
         }
-        return false;
 
     }
+    return false;
 }
 
 for (let i = 0; i < squares.length; i++) {
     squares[i].onclick = () => {
         console.log(i)
         let pos = checkEmpty(i);
-        if (!pos) {
+        if (pos === false) {
             alert('Invalid Place');
         } else {
             squares[pos].classList.add('circle-red');
