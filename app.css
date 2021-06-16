@@ -22,10 +22,14 @@ td {
     background-color: white;
 }
 
-.circle-red {
+.red {
      background-color: red;
 }
 
-.circle-yellow {
+.yellow {
     background-color: yellow;
+}
+
+h1 {
+    position: absolute;
 }
