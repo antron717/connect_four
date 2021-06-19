@@ -77,6 +77,12 @@ function winCheck() {
     return (winCheckH() || winCheckV() || winCheckD())
 }
 
+function displayWin(player) {
+    document.querySelector('h1').classList.add('hide')
+    document.querySelector('h2').innerText = `Player ${player} wins!`
+    document.querySelector('.overlay').classList.remove('hide')
+}
+
 document.querySelector('h1').innerText = 'Player: ' + player
 for (let i = 0; i < squares.length; i++) {
     squares[i].onclick = () => {
@@ -89,8 +95,7 @@ for (let i = 0; i < squares.length; i++) {
                 // board[pos] = player
                 // squares[pos].innerHTML = pos
                 if (winCheck()) {
-                    document.querySelector('h1').innerText = `Player ${player} WINS!`
-                    alert(`Player ${player} wins`)
+                    displayWin(player)
                 }
                 player = 2;
             } else {
@@ -98,8 +103,7 @@ for (let i = 0; i < squares.length; i++) {
                 // board[pos] = player
                 // squares[pos].innerHTML = pos
                 if (winCheck()) {
-                    document.querySelector('h1').innerText = `Player ${player} WINS!`
-                    alert(`Player ${player} wins`)
+                    displayWin(player)
                 }
                 player = 1;
             }
